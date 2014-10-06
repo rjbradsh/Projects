@@ -1,5 +1,5 @@
-#in progress
-
+#Takes in a number and then prints out the English name of that number
+#By Richard Bradshaw
 
 def get_digit_and_position_name(digit, position):
 	if not isinstance(digit, int):
