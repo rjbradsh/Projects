@@ -3,9 +3,9 @@
 
 def get_digit_and_position_name(digit, position):
 	if not isinstance(digit, int):
-		raise TypeError
+		raise TypeError( "digit must be an integer" )
 	if not isinstance(position, int):
-		raise TypeError
+		raise TypeError( "position must be an integer" )
 	name = ""
 	if position != 10:
 		name = [" One", " Two", " Three", " Four", " Five",
@@ -29,7 +29,7 @@ def process_sub_unit_name(sub_unit, rank):
 	while sub_unit > 0:
 		digit = sub_unit/sub_position
 		if sub_position == 10 and digit == 1:
-			name = account_for_tens(sub_unit)
+			name = name + account_for_tens(sub_unit)
 			sub_unit = 0
 		elif digit != 0:
 			name = name + get_digit_and_position_name(digit, sub_position)
@@ -44,7 +44,7 @@ def process_sub_unit_name(sub_unit, rank):
 		
 def print_name_in_english( x ):
 	if not isinstance(x, int):
-		raise TypeError
+		raise TypeError( "x must be an integer" )
 	
 	name_string = ""
 	if x < 0:
@@ -66,6 +66,8 @@ def print_name_in_english( x ):
 			
 			
 			
-
-number = int(input('Please enter a number: '))
-print_name_in_english(number)
+try:
+	number = int(input('Please enter a number: '))
+	print_name_in_english(number)
+except NameError:
+	print "Invalid number entered"
